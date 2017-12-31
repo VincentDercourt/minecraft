@@ -14,7 +14,7 @@ COPY ./*.* /
 RUN chmod 755 /start.sh \
     && sed -i -e 's/\r$//' /start.sh \
     && useradd -ms /bin/bash mcserver \
-    && echo "mcserver:mcserver" | chpasswd && adduser mcserver sudo \
+    && echo "mcserver:mcserver" | chpasswd && adduser mcserver sudo
     
 RUN sed -i -e 's/# fr_FR.UTF-8 UTF-8/fr_FR.UTF-8 UTF-8/' /etc/locale.gen && \
     locale-gen
@@ -26,6 +26,6 @@ VOLUME /home/mcserver
 
 WORKDIR /home/mcserver
 
-EXPOSE 26900 8080-8082 26900/udp 26900-26902/udp
+EXPOSE 25665
 
 CMD ["/start.sh"]
